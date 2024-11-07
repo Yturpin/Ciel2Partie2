@@ -39,3 +39,79 @@ L'outil permettant de tester si le DNS fonctionne correctement en résolution di
  ---------------------------------------------------------------------------------------------------------------------------
 
 Les réponses correctes sont : Adresse IP selon un nom, Un nom selon une adresse IP
+
+
+------------------------------------------------IPTABLES--------------------------------------------------------------------------------------
+
+1)Quelle commande iptables permet de vider toutes les règles de la table mangle ?
+La commande correcte est iptables -t mangle -F.
+
+2)Quelle commande permet de supprimer la règle iptables -A INPUT -p tcp --dport 22 -j ACCEPT ?
+La commande correcte est iptables -D INPUT -p tcp --dport 22 -j ACCEPT.
+
+3)La chaîne FORWARD est utilisée pour le trafic qui est transféré entre deux interfaces réseau sans passer par la machine elle-même.
+
+4)La commande iptables -A OUTPUT -j DROP bloque tout le trafic sortant.
+
+5)La politique par défaut de la chaîne INPUT peut être définie sur DROP avec la commande iptables -P INPUT DROP.
+
+6)Quel paquet doit être installé afin de pouvoir utiliser des iptables sous Debian ?
+Le paquet à installer est iptables.
+
+7)Que fait la commande suivante ? iptables -A FORWARD -d 162.159.136.232 -j DROP
+Cette commande bloque tous les paquets dont la destination est l'adresse IP 162.159.136.232.
+
+8)Les règles iptables sont appliquées dans l'ordre dans lequel elles sont ajoutées.
+C'est vrai. Les règles iptables sont traitées séquentiellement dans l'ordre d'ajout.
+
+9)Quelle option doit être spécifiée pour ajouter une règle à la table nat ?
+L'option -t nat doit être utilisée pour ajouter une règle à la table nat.
+
+10)Quelle commande iptables permet de vider toutes les règles de la table nat ?
+La commande correcte est iptables -t nat -F.
+
+--------------------------------------------------------------------------------------------------------------
+
+1)Quelle règle iptables permet d'autoriser le trafic entrant sur le port 80 (HTTP) ?
+La commande correcte est iptables -A INPUT -p tcp --dport 80 -j ACCEPT.
+
+2)Quelle commande permet de bloquer le port 80 en entrée ?
+La commande iptables -A INPUT -p tcp --dport 80 -j DROP permet de bloquer le port 80.
+La réponse correcte est : iptables -A INPUT -p tcp --dport 80 -j DROP
+
+3)Par défaut, iptables utilise la table filter pour les règles.
+Cette affirmation est vraie. La table filter est utilisée par défaut si aucune table n'est spécifiée.
+La réponse correcte est « Vrai ».
+
+4)Quelle règle iptables permet de rediriger le trafic entrant sur le port 80 vers le port 8080 ?
+La règle correcte est iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080.
+La réponse correcte est : iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+5)Faut-il agir sur la chaîne INPUT pour bloquer le trafic ICMP ?
+Oui, c'est la chaîne INPUT qui traite les paquets entrants vers la machine.
+La réponse correcte est « Vrai ».
+
+6)Quelle règle iptables permet de bloquer les pings (trafic ICMP) ?
+La règle iptables -A INPUT -p icmp --icmp-type echo-request -j DROP permet de bloquer les pings.
+La réponse correcte est : iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+
+7)Quelle commande permet de supprimer une règle iptables spécifique ?
+La commande correcte est iptables -D suivie de la règle à supprimer.
+La réponse correcte est : iptables -D
+
+8)Quelle commande iptables permet d’ajouter une règle à la chaîne POSTROUTING de la table nat pour activer la translation d'adresse réseau (NAT) ?
+La commande correcte est iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE, où eth0 est l'interface réseau.
+La réponse correcte est : iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+9)Quelle commande permet d'afficher toutes les règles actuelles de la table filter ?
+La commande correcte est iptables -L pour lister toutes les règles de la table filter.
+La réponse correcte est : iptables -L
+
+10)Quelle commande iptables permet de vider toutes les règles de la table filter ?
+La commande correcte est iptables -F.
+La réponse correcte est : iptables -F
+
+
+
+
+
